@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>ClickCraze</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono&display=swap" rel="stylesheet">
+    <link href="Home.css" rel="stylesheet">
+    <script defer src="Home.js"></script>
+    <style>
+        body {
+            font-family: "Atkinson Hyperlegible Mono", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="Untitled(3)(1).png" width="100px" alt="Logo">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="About.Html">About</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+    </header>
+    
+    <div style="width: 500px; margin-left: 2rem;">
+        <h1 style="font-size: 50px;">Where Trends Meet Timeless.</h1>
+        <p style="font-size: 25px; font-weight: 300;">
+            We’re here to help you look and feel your best with modern, high-quality clothing for every occasion.
+        </p>
+        <a href="Products.html"><button id="btn-dark-filled">Shop Now</button></a>
+    </div>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            }
+        });
+
+        // Close menu after clicking a link
+        document.querySelectorAll(".nav-links a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        }));
+    </script>
+</body>
+</html>
